@@ -1,12 +1,35 @@
+
+let page =1;
 const api_key = '6648a95be2008fe7ba31dec0a9e7c2ce';
 const url_api = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&lenguage=es-MX`;
 const container = document.getElementById('container');
+const btnPrevious = document.getElementById('btnPrevious');
+const btnNext = document.getElementById('btnNext');
 
-const loadMovie = async() =>
+btnPrevious.addEventListener('click', () => 
 {
+   if(page > 1)
+   {
+      page -= 1;
+		loadMovie(`${page}`);
+	}
+});
+
+btnNext.addEventListener('click', ()=> 
+{
+   if(page < 1000)
+   {
+      page +=1;
+      loadMovie(`${page}`);
+   }
+})
+
+const loadMovie = async(page = 1) =>
+{
+   console.log(page)
    try 
    {
-      const response = await fetch(url_api);
+      const response = await fetch(`${url_api}&page=${page}`);
 
       if(response.status === 200)
       {
@@ -14,12 +37,12 @@ const loadMovie = async() =>
          
          data.results.forEach( movie => 
          {
-            const item = document.createElement('div');
-            const img = document.createElement('img');
-            const title = document.createElement('h3');
-            const date = document.createElement('h5');
-            const textTitle = document.createTextNode(`${movie.title}`);
-            const textDate = document.createTextNode(`Estreno: ${movie.release_date}`)
+            let item = document.createElement('div');
+            let img = document.createElement('img');
+            let title = document.createElement('h3');
+            let date = document.createElement('h5');
+            let textTitle = document.createTextNode(`${movie.title}`);
+            let textDate = document.createTextNode(`Estreno: ${movie.release_date}`)
 
             img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
             title.appendChild(textTitle);
