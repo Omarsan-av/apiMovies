@@ -34,28 +34,43 @@ const loadMovie = async(page = 1) =>
       if(response.status === 200)
       {
          const data = await response.json();
-         
-         data.results.forEach( movie => 
+
+         let movies = '';
+
+         data.results.forEach(movie => 
          {
-            let item = document.createElement('div');
-            let img = document.createElement('img');
-            let title = document.createElement('h3');
-            let date = document.createElement('h5');
-            let textTitle = document.createTextNode(`${movie.title}`);
-            let textDate = document.createTextNode(`Estreno: ${movie.release_date}`)
-
-            img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
-            title.appendChild(textTitle);
-            date.appendChild(textDate);
-            
-            container.appendChild(item);
-            item.className = 'item';
-            img.className = 'item__img';
-            title.className = 'item__title';
-            date.className = 'item__date';
-
-            item.append(img, title, date);
+            movies += `
+               <div class="item">
+                  <img src = "https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="item__img">
+                  <h3 class="item__title">${movie.title}</h3>
+                  <h5 class="item__date">Estreno: ${movie.release_date}</h5> 
+               </div>
+            `;
          });
+
+			document.getElementById('container').innerHTML = movies;
+         
+         // data.results.forEach( movie => 
+         // {
+         //    let item = document.createElement('div');
+         //    let img = document.createElement('img');
+         //    let title = document.createElement('h3');
+         //    let date = document.createElement('h5');
+         //    let textTitle = document.createTextNode(`${movie.title}`);
+         //    let textDate = document.createTextNode(`Estreno: ${movie.release_date}`)
+
+         //    img.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+         //    title.appendChild(textTitle);
+         //    date.appendChild(textDate);
+            
+         //    container.appendChild(item);
+         //    item.className = 'item';
+         //    img.className = 'item__img';
+         //    title.className = 'item__title';
+         //    date.className = 'item__date';
+
+         //    item.append(img, title, date);
+         // });
       }
       else if(response.status === 404)
       {

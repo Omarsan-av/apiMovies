@@ -4,12 +4,26 @@
    margin: 0;
 }
 
+html 
+{
+   scroll-behavior:smooth;
+}
+
 body 
 {
    width: 100%;
    height: 100vh;
    box-sizing: border-box;
    background-color: black;
+}
+
+.title-principal 
+{
+   color: white;
+   font-size: 50px;
+   margin: 30px auto 60px;
+   text-align: center;
+   text-shadow: 1px 1px 3px #a75bd8;
 }
 
 .container 
@@ -29,18 +43,131 @@ body
 
 .item__img 
 {
-   width: 240px;
-   height: 350px;
+   width: 230px;
+   height: 335px;
    box-sizing: border-box;
-   border: 1px solid #242427;
    border-radius: 20px;
+   box-shadow: 0px -1px 10px transparent;
+   transition: all 300ms ;
+}
+
+.item__img:hover
+{
+   box-shadow: 0px -1px 10px white;
+   transform: scale(1.05);
+}
+
+.item__img:hover~.item__title, .item__img:hover~.item__date
+{
+   color: white;
+   text-shadow: 1px 1px 3px #a75bd8;
+}
+
+.item__title 
+{
+   margin-top: 20px;
+   transition: all 300ms ;
+}
+
+.item__date 
+{
+   margin-top: 5px;
+   transition: all 300ms ;
 }
 
 .item__title, .item__date
 {
-   margin-top: 10px;
-   color: wheat;
+   color: #5a5a5a;
+   padding-left: 10px;
 }
 
+.buttons
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 25px 0;
+}
 
+.buttons__pagination
+{
+   box-sizing: border-box;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   background-color: transparent;
+   border: 2px solid #a75bd8;
+   border-radius: 0.6em;
+   color: #a75bd8;
+   cursor: pointer;
+   display: -webkit-box;
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-align-self: center;
+   -ms-flex-item-align: center;
+   align-self: center;
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1;
+   margin: 20px;
+   padding: 1.2em 2.8em;
+   text-decoration: none;
+   text-align: center;
+   text-transform: uppercase;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
+}
 
+.buttons__pagination:hover, .buttons__pagination:focus 
+{
+   color: #fff;
+   outline: 0;
+}
+
+.buttons__pagination--btn
+{
+   border-color: #a75bd8;
+   color: #fff;
+   transition: all 150ms ease-in-out;
+}
+
+.buttons__pagination--btn:hover 
+{
+   box-shadow: 0 0 0px 0 #a75bd8 inset, 0 0 10px 4px #a75bd8;
+}
+
+.up 
+{
+   background-color: #703895;
+   height: 65px;
+   width: 65px;
+   border-radius: 50%;
+   border: none;
+   font-size: 16px;
+   position: relative;
+   right: -25%;  
+}
+
+.up:hover 
+{
+   background-color: #8f50b9;
+   box-shadow: 0px 0px 3px rgb(255, 255, 255);
+}
+
+.up a 
+{
+   text-decoration: none;
+   color: white;
+   position: absolute;
+   height: 65px;
+   width: 65px;
+   border-radius: 50%;
+   right: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
