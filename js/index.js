@@ -48,7 +48,7 @@ const loadMovie = async(page = 1) =>
             `;
          });
 
-			document.getElementById('container').innerHTML = movies;
+			container.innerHTML = movies;
          
          // data.results.forEach( movie => 
          // {
