@@ -188,7 +188,7 @@ body
    }
 }
 
-@media screen and (min-width: 320px) and (min-width: 320px)
+@media screen and (min-width: 320px) and (max-width: 600px)
 {
    .title-principal 
    {
