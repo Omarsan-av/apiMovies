@@ -189,11 +189,23 @@ body
    .item 
    {
       width: 150px;
+      height: 350px;
    }
 
    .item__img 
    {
       width: 100%;
-      height: 230px;
+      height: 210px;
+   }
+
+   .buttons__pagination 
+   {
+      font-size: 14pxs;
+      padding: 16px 25px;
+   }
+
+   .up 
+   {
+      top: -150px
    }
 }
