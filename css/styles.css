@@ -186,6 +186,11 @@ body
       grid-template-columns: repeat(2, 1fr);
    }
 
+   .item 
+   {
+      width: 150px;
+   }
+
    .item__img 
    {
       width: 100%;
