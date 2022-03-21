@@ -198,14 +198,20 @@ body
       height: 210px;
    }
 
+   .buttons 
+   {
+      flex-wrap: wrap;
+      padding: 0 0 20px;
+   }
+
    .buttons__pagination 
    {
-      font-size: 14pxs;
+      font-size: 14px;
       padding: 16px 25px;
    }
 
    .up 
    {
-      top: -150px
+      right: unset;
    }
 }
